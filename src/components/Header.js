@@ -1,21 +1,11 @@
-import "./Header.css";
+import React from 'react'
 
-function Header() {
-  const myStyle = {
-      color : "red" , 
-      backgroundColor: "lightblue",
-      padding : "10px",
-      fontFamily : "Sans-serif" 
-  }
-  return(
-    <>
-    <h1 style={myStyle}>This is mainly used for the styling</h1>
-     <p>this is the p tag</p>
-    
-    </>
-   
+const Header = () => {
+  return (
+    <header>
+      <h1>Todo list</h1>
+    </header>
   )
-
 }
 
 export default Header

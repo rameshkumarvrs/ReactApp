@@ -1,34 +1,38 @@
-import React from 'react'
-import ItemsList from './ItemsList'
 
 
-const Content = ({items,handleCheck,handleDelete}) => {
 
-  
 
+const Content = ({items, handleCheck, handleDelete}) => {
 
    
-   
 
+   
  
-
   return (
-   <main>
-    {
-    (items.length)? (
-      <ItemsList 
-      
-       items = {items}
-       handleCheck = {handleCheck}
-       handleDelete = {handleDelete}
-      
-      />
-  
-    ):(
-      <p>your cart is empty</p>
-    )
-  }
-    </main>
+      <>
+     
+     <main>
+      {(items.length) ? (
+        <ul>
+          {items.map(item => (
+            <li key={item.id}>
+                <input 
+        type="checkbox"
+        onChange={() => handleCheck(item.id)}
+        checked={item.checked} 
+        
+        />
+        <label style={(item.checked) ? {textDecoration:'line-through'} : null}>{item.item}</label>
+        <button onClick={() => handleDelete(item.id)}>Delete</button>
+            </li>
+          
+          ))}
+        </ul>
+      ) : (
+         <p>No records found makkale</p>
+      )}
+     </main>
+      </>   
   )
 }
 

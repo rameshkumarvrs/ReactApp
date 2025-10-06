@@ -1,16 +1,19 @@
 import React from 'react'
 
-const Header = (props) => {
+const Header = ({title= "pachelapudungi"}) => {
 
   
 
   return (
     <header>
 
-<h1>{props.title} is {props.email}</h1>
+<h1>{title}</h1>
 
     </header>
   )
 }
 
+Header.defaultProps = {
+  title: "pachelapudungi"
+}
 export default Header
