@@ -5,6 +5,7 @@ import './App.css';
 import Footer from './Footer';
 import Content from './Content';
 import React, { useState } from 'react'
+import AddItem from './AddItem';
 
 
 
@@ -35,6 +36,26 @@ function App() {
     ]
   )
 
+  const [newItem, setNewItem] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // console.log(newItem)
+    addItem(newItem)
+    setNewItem('')
+  }
+
+
+  const addItem = (item) => {
+    const id = items.length? items[items.length -1].id + 1 : 1
+    const addNewItem = {id, checked:false, item}
+    const listItems = [...items, addNewItem]
+    setItems(listItems)
+    localStorage.setItem("todo_list", JSON.stringify(listItems))
+
+    console.log(id)
+  } 
+
 
   const handleCheck = (id) => {
     const ListItems = items.map((item) => item.id === id ? {...item, checked:!item.checked} : item)
@@ -56,6 +77,11 @@ return(
   <div className='App'>
     <>
     <Header title="ramsprinto runner da" />
+    <AddItem 
+      newItem = {newItem}
+      setNewItem = {setNewItem}
+      handleSubmit = {handleSubmit}
+    />
     <Content 
     items = {items}
     handleCheck={handleCheck}

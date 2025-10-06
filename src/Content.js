@@ -1,3 +1,5 @@
+import React from "react"
+import ItemsList from "./ItemsList"
 
 
 
@@ -13,21 +15,12 @@ const Content = ({items, handleCheck, handleDelete}) => {
      
      <main>
       {(items.length) ? (
-        <ul>
-          {items.map(item => (
-            <li key={item.id}>
-                <input 
-        type="checkbox"
-        onChange={() => handleCheck(item.id)}
-        checked={item.checked} 
-        
-        />
-        <label style={(item.checked) ? {textDecoration:'line-through'} : null}>{item.item}</label>
-        <button onClick={() => handleDelete(item.id)}>Delete</button>
-            </li>
-          
-          ))}
-        </ul>
+       <ItemsList 
+        items = {items}
+        handleCheck={handleCheck}
+        handleDelete={handleDelete}
+       
+       />
       ) : (
          <p>No records found makkale</p>
       )}
