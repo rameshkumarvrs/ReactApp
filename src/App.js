@@ -6,37 +6,18 @@ import Footer from './Footer';
 import Content from './Content';
 import React, { useState } from 'react'
 import AddItem from './AddItem';
+import SearchItem from './SearchItem';
 
 
 
 function App() {
 
-  const [items, setItems] = useState(
-    [
-      {
-        id: 1,
-        checked: true,
-        item: "ayirukanum"
-
-      },
-
-       {
-        id: 2,
-        checked: false,
-        item: "kulikanum"
-
-      },
-
-       {
-        id: 3,
-        checked: false,
-        item: "sapdanum"
-
-      }
-    ]
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('todo_list'))
+    
   )
 
   const [newItem, setNewItem] = useState('')
+  const [search, searchItem] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -82,8 +63,13 @@ return(
       setNewItem = {setNewItem}
       handleSubmit = {handleSubmit}
     />
+
+    < SearchItem 
+      search = {search}
+      searchItem = {searchItem}
+    />
     <Content 
-    items = {items}
+    items = {items.filter(item => ((item.item).toLowerCase().includes(search.toLowerCase())))}
     handleCheck={handleCheck}
     handleDelete={handleDelete}
     />
