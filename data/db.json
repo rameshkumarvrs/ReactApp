@@ -1,24 +1,39 @@
 {
-    "items": [
-      {
-         "id": 1, 
-         "checked": false, 
-         "item": 100 
-      },
-
-      { 
-        "id": 2, 
-        "checked": false, 
-        "item": 200 
-      },
-
-
-      { 
-        "id": 3, 
-        "checked": true, 
-        "item": 300 
-      }
-
-    ]
-    
-  }
+  "items": [
+    {
+      "id": "1",
+      "checked": false,
+      "item": "100"
+    },
+    {
+      "id": "2",
+      "checked": false,
+      "item": "200"
+    },
+    {
+      "id": "3",
+      "checked": true,
+      "item": "300"
+    },
+    {
+      "id": "4",
+      "checked": false,
+      "item": "ochaye"
+    },
+    {
+      "id": "5",
+      "checked": false,
+      "item": "git"
+    },
+    {
+      "id": "6",
+      "checked": false,
+      "item": "ruby"
+    },
+    {
+      "id": "7",
+      "checked": false,
+      "item": "python"
+    }
+  ]
+}
